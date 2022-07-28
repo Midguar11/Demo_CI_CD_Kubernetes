@@ -3,10 +3,23 @@ node {
     stage("Git Clone"){
 
         git credentialsId: 'e55b3f41-c210-44c2-81d9-234977265fd1', url: 'https://github.com/Midguar11/Demo_CI_CD_Kubernetes.git'
+        sh 'sudo chmod 700 gradlew' 
     }
     
-    stage('Gradle Build') {
-       sh 'sudo chmod 700 gradlew'                
+    stage('Sonarqube Scan') {
+        withSonarQubeEnv('sonarqube') {
+        sh "./gradlew sonarqube -D sonar.projectKey=Demo_CI_CD_Kubernetes"
+        }
+    }
+ 
+    stage("Quality Gate"){
+        timeout(time: 5, unit: 'MINUTES') {
+        waitForQualityGate abortPipeline: true    
+        }
+    }
+    
+    
+    stage('Gradle Build') {                   
        sh './gradlew build'
     }
     
