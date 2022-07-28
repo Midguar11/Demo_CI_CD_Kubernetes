@@ -37,6 +37,6 @@ test {
 
 sonarqube {
   properties {
-    property "sonar.projectKey", "test2"
+    property "sonar.projectKey", "Demo_CI_CD_Kubernetes"
   }
 }
