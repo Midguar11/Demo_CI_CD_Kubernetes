@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.2.7.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
+	id "org.sonarqube" version "4.7.0.2747"
 }
 
 group = 'com.jhooq'
@@ -33,9 +34,6 @@ test {
 	useJUnitPlatform()
 }
 
-plugins {
-  id "org.sonarqube" version "4.7.0.2747"
-}
 
 sonarqube {
   properties {
