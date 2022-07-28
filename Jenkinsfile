@@ -55,7 +55,7 @@ node {
     }
 
    stage('The countdown has started. The Demo Webshop will be deleted after 15 minutes'){
-    echo 'http://demoapp1.devopsempire.com/'
+    echo 'http://demoapp2.devopsempire.com/'
   }
 
 }
