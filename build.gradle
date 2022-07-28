@@ -32,3 +32,13 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
+
+plugins {
+  id "org.sonarqube" version "4.7.0.2747"
+}
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "test2"
+  }
+}
